@@ -13,6 +13,7 @@ specifiers:
   '@vue/eslint-config-typescript': ^9.1.0
   '@vue/test-utils': ^2.0.0-0
   '@vue/vue3-jest': ^27.0.0-alpha.1
+  axios: ^0.27.2
   babel-jest: ^27.0.6
   core-js: ^3.8.3
   eslint: ^7.32.0
@@ -46,6 +47,7 @@ devDependencies:
   '@vue/eslint-config-typescript': 9.1.0_20e27d713af20d2a6e479761533faf80
   '@vue/test-utils': 2.0.0_vue@3.2.37
   '@vue/vue3-jest': 27.0.0_b5351ae9a8c52a66a2c349c7d433f447
+  axios: 0.27.2
   babel-jest: 27.5.1
   eslint: 7.32.0
   eslint-config-prettier: 8.5.0_eslint@7.32.0
@@ -3146,6 +3148,15 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
+  /axios/0.27.2:
+    resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
+    dependencies:
+      follow-redirects: 1.15.1_debug@4.3.4
+      form-data: 4.0.0
+    transitivePeerDependencies:
+      - debug
+    dev: true
+
   /babel-jest/27.5.1:
     resolution: {integrity: sha512-cdQ5dXjGRd0IBRATiQ4mZGlGlRE8kJpjPOixdNRdT+m3UcNqmYWN6rK6nvtXYfY3D76cb8s/O1Ss8ea24PIwcg==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
@@ -4850,6 +4861,15 @@ packages:
 
   /form-data/3.0.1:
     resolution: {integrity: sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg==}
+    engines: {node: '>= 6'}
+    dependencies:
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      mime-types: 2.1.35
+    dev: true
+
+  /form-data/4.0.0:
+    resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
     engines: {node: '>= 6'}
     dependencies:
       asynckit: 0.4.0
