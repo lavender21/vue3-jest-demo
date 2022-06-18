@@ -1,7 +1,7 @@
 import { getLink, getLinkByDevice } from "@/utils/link-demo";
 import * as device from "@/utils/device";
 
-describe("link demo", function () {
+describe("link demo, test function with dependency", function () {
   describe("getLinkByDevice", function () {
     it("should return pc link when device is pc", function () {
       expect(getLinkByDevice(false)).toEqual("https://pc.address");

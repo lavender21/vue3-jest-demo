@@ -1,7 +1,7 @@
 import { getTemplateByUser } from "@/utils/api-request-demo";
 import * as api from "@/utils/api";
 
-describe("api request demo", function () {
+describe("api request demo, test function with api request", function () {
   describe("getTemplateByUser", function () {
     it("should return templateLow when user level < 3", async function () {
       jest
