@@ -14,4 +14,14 @@ describe("Item component, component UI test demo", function () {
     expect(wrapper.text()).toEqual("准备前端单元测试session ppt");
     expect(wrapper.find("span").classes()).toEqual(["todo-item"]);
   });
+  it("should render completed item", function () {
+    const wrapper = shallowMount(Item, {
+      props: {
+        title: "准备前端单元测试session ppt",
+        completed: true,
+      },
+    });
+    expect(wrapper.text()).toEqual("准备前端单元测试session ppt");
+    expect(wrapper.find("span").classes()).toEqual(["todo-item", "completed"]);
+  });
 });
