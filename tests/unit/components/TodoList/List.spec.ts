@@ -17,6 +17,7 @@ describe("List component, component UI test demo", function () {
 
     expect(wrapper.findAllComponents(Item).length).toEqual(2);
   });
+  // 测试契约部分的输出
   it("should pass title and completed props to item", function () {
     const wrapper = shallowMount(List, {
       props: {
