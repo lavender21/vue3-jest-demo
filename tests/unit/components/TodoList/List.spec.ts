@@ -1,4 +1,4 @@
-import { shallowMount } from "@vue/test-utils";
+import { mount, shallowMount } from "@vue/test-utils";
 import List from "@/components/TodoList/List.vue";
 import Item from "@/components/TodoList/Item.vue";
 
@@ -28,5 +28,24 @@ describe("List component, component UI test demo", function () {
       title: "准备session ppt",
       completed: true,
     });
+  });
+  // mount 和 shallowMount对比
+  it("should render list item with mount", function () {
+    const wrapper = mount(List, {
+      props: {
+        todos,
+      },
+    });
+
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+  it("should render list item with shallowMount", function () {
+    const wrapper = shallowMount(List, {
+      props: {
+        todos,
+      },
+    });
+
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

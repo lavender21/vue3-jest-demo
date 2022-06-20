@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component, component UI test demo should render list item with mount 1`] = `
+<div>
+  <div><span class="todo-item completed">准备session ppt</span></div>
+  <div><span class="todo-item">准备session demo code</span></div>
+</div>
+`;
+
+exports[`List component, component UI test demo should render list item with shallowMount 1`] = `
+<div>
+  <item-stub title="准备session ppt" completed="true"></item-stub>
+  <item-stub title="准备session demo code" completed="false"></item-stub>
+</div>
+`;
