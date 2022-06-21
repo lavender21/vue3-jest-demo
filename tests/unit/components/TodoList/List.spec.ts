@@ -30,6 +30,22 @@ describe("List component, component UI test demo", function () {
       completed: true,
     });
   });
+  // 测试监听Vue自定义事件
+  it("should remove current item from list when Item component emit remove event", async function () {
+    const wrapper = shallowMount(List, {
+      props: {
+        todos,
+      },
+    });
+
+    await wrapper.findAllComponents(Item)[0].vm.$emit("remove");
+
+    expect(wrapper.findAllComponents(Item)[0].props()).toEqual({
+      title: "准备session demo code",
+      completed: false,
+    });
+  });
+
   // mount 和 shallowMount对比
   it("should render list item with mount", function () {
     const wrapper = mount(List, {
