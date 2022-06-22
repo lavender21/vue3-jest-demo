@@ -9,7 +9,8 @@
       </button>
     </div>
     <Item
-      v-for="(item, index) in todos"
+      v-for="(item, index) in todoItems"
+      :key="`item${index}`"
       :title="item.title"
       :completed="item.completed"
       @remove="removeItem(index)"
@@ -21,12 +22,13 @@ import { ref } from "vue";
 import Item from "./Item.vue";
 const props = defineProps<{ todos: [{ title: string; completed: boolean }] }>();
 
+const todoItems = ref(props.todos);
 const inputValue = ref("");
 const removeItem = (index: number) => {
-  props.todos.splice(index, 1);
+  todoItems.value.splice(index, 1);
 };
 const addItem = () => {
-  props.todos.push({
+  todoItems.value.push({
     title: inputValue.value,
     completed: false,
   });
