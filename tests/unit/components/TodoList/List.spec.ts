@@ -70,12 +70,19 @@ describe("List component, component UI test demo", function () {
   });
 
   // mount 和 shallowMount对比 snapshot 要等组件完成最后再加
-  xit("should render list item with mount", function () {
-    const wrapper = shallowMountTodoList();
+  it("should render list item with mount", function () {
+    const wrapper = mount(List, {
+      props: {
+        todos: [
+          { title: "准备session ppt", completed: true },
+          { title: "准备session demo code", completed: false },
+        ],
+      },
+    });
 
     expect(wrapper.html()).toMatchSnapshot();
   });
-  xit("should render list item with shallowMount", function () {
+  it("should render list item with shallowMount", function () {
     const wrapper = shallowMountTodoList();
 
     expect(wrapper.html()).toMatchSnapshot();
