@@ -44,6 +44,6 @@ describe("Item component, component UI test demo", function () {
     });
 
     wrapper.find("span.todo-item").trigger("click");
-    expect(wrapper.emitted().complete).toBeTruthy();
+    expect(wrapper.emitted().toggle).toBeTruthy();
   });
 });

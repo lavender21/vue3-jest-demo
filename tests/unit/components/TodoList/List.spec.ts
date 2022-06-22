@@ -52,14 +52,20 @@ describe("List component, component UI test demo", function () {
     });
   });
 
-  it("should complete item when Item component emit complete event", async function () {
+  it("should toggle item when Item component emit toggleComplete event", async function () {
     const wrapper = shallowMountTodoList();
+    const itemWrapper = wrapper.findAllComponents(Item)[1];
+    await itemWrapper.vm.$emit("toggle");
 
-    await wrapper.findAllComponents(Item)[1].vm.$emit("complete");
-    console.log(wrapper.text());
-    expect(wrapper.findAllComponents(Item)[1].props()).toEqual({
+    expect(itemWrapper.props()).toEqual({
       title: "准备session demo code",
       completed: true,
+    });
+
+    await itemWrapper.vm.$emit("toggle");
+    expect(itemWrapper.props()).toEqual({
+      title: "准备session demo code",
+      completed: false,
     });
   });
 

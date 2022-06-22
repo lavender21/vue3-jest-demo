@@ -13,7 +13,7 @@
       :key="`item${index}`"
       :title="item.title"
       :completed="item.completed"
-      @complete="completeItem(index)"
+      @toggle="toggleItem(index)"
       @remove="removeItem(index)"
     />
   </div>
@@ -36,8 +36,9 @@ const addItem = () => {
   inputValue.value = "";
 };
 
-const completeItem = (index: number) => {
-  todoItems.value[index].completed = true;
+const toggleItem = (index: number) => {
+  const currentStatus = todoItems.value[index].completed;
+  todoItems.value[index].completed = !currentStatus;
 };
 </script>
 <style lang="scss" scoped></style>

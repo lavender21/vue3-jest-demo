@@ -13,13 +13,13 @@ const props = defineProps<{ title: string; completed: boolean }>();
 
 const dynimacClass = computed(() => (props.completed ? "completed" : ""));
 
-const emit = defineEmits(["remove", "complete"]);
+const emit = defineEmits(["remove", "toggle"]);
 
 const removeItem = () => {
   emit("remove");
 };
 const setItemCompleted = () => {
-  emit("complete");
+  emit("toggle");
 };
 </script>
 <style lang="scss" scoped></style>
