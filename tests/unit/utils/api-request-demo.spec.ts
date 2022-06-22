@@ -1,5 +1,5 @@
 import { getTemplateByUser } from "@/utils/api-request-demo";
-import * as api from "@/utils/api";
+import * as api from "@/api/api";
 
 describe("api request demo, test function with api request", function () {
   describe("getTemplateByUser", function () {

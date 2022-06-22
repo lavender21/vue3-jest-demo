@@ -1,4 +1,4 @@
-import { getUserInfoApi } from "@/utils/api";
+import { getUserInfoApi } from "@/api/api";
 
 export const getTemplateByUser = async (userId: string) => {
   const userInfo = await getUserInfoApi(userId);
