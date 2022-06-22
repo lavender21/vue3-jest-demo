@@ -1,12 +1,8 @@
 <template>
-  <div>
-    <div>
-      <input type="text" v-model="inputValue" /><button
-        class="add-todo-btn"
-        @click="addItem"
-      >
-        Add
-      </button>
+  <div class="todo-list-wrapper">
+    <div class="input-item-wrapper">
+      <input type="text" v-model="inputValue" class="item-input" />
+      <button class="add-todo-btn" @click="addItem">Add</button>
     </div>
     <Item
       v-for="(item, index) in todoItems"
@@ -41,4 +37,29 @@ const toggleItem = (index: number) => {
   todoItems.value[index].completed = !currentStatus;
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.todo-list-wrapper {
+  width: 500px;
+  margin: 20px auto;
+}
+.input-item-wrapper {
+  margin: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.item-input {
+  padding: 8px;
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 0;
+}
+.add-todo-btn {
+  padding: 8px;
+  width: 60px;
+  background: #3fb983;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+}
+</style>

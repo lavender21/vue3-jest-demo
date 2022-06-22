@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="todo-item-wrapper">
     <span class="todo-item" :class="dynimacClass" @click="setItemCompleted">
       {{ title }}
     </span>
@@ -22,4 +22,29 @@ const setItemCompleted = () => {
   emit("toggle");
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.todo-item-wrapper {
+  width: 100%;
+  margin: 8px;
+  display: flex;
+  justify-content: space-between;
+  background: #eee;
+  cursor: pointer;
+  .todo-item {
+    padding: 8px;
+    flex: 1;
+    text-align: left;
+    &.completed {
+      text-decoration: line-through;
+    }
+  }
+  .remove-btn {
+    padding: 8px;
+    width: 100px;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    background: #e76767;
+  }
+}
+</style>
