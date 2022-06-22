@@ -5,19 +5,16 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed } from "vue";
 
-const props = defineProps<{title: string, completed: boolean}>()
+const props = defineProps<{ title: string; completed: boolean }>();
 
-const dynimacClass = computed(() => props.completed ? 'completed' : '')
+const dynimacClass = computed(() => (props.completed ? "completed" : ""));
 
-const emit = defineEmits(['remove'])
+const emit = defineEmits(["remove"]);
 
 const removeItem = () => {
-  emit('remove')
-}
-
+  emit("remove");
+};
 </script>
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

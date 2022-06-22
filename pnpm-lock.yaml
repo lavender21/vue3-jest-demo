@@ -10,6 +10,7 @@ specifiers:
   '@vue/cli-plugin-typescript': ~5.0.0
   '@vue/cli-plugin-unit-jest': ~5.0.0
   '@vue/cli-service': ~5.0.0
+  '@vue/eslint-config-prettier': ^7.0.0
   '@vue/eslint-config-typescript': ^9.1.0
   '@vue/test-utils': ^2.0.0-0
   '@vue/vue3-jest': ^27.0.0-alpha.1
@@ -44,6 +45,7 @@ devDependencies:
   '@vue/cli-plugin-typescript': 5.0.4_ac8c1a6103f2c45d2e45c76d5aa8cbff
   '@vue/cli-plugin-unit-jest': 5.0.4_d3c5dbd2d93ca5e2b1425cc6e8c1aff2
   '@vue/cli-service': 5.0.4_sass-loader@12.6.0
+  '@vue/eslint-config-prettier': 7.0.0_eslint@7.32.0+prettier@2.6.2
   '@vue/eslint-config-typescript': 9.1.0_20e27d713af20d2a6e479761533faf80
   '@vue/test-utils': 2.0.0_vue@3.2.37
   '@vue/vue3-jest': 27.0.0_b5351ae9a8c52a66a2c349c7d433f447
@@ -2674,6 +2676,18 @@ packages:
     resolution: {integrity: sha512-IiA0SvDrJEgXvVxjNkHPFfDx6SXw0b/TUkqMcDZWNg9fnCAHbTpoo59YfJ9QLFkwa3raau5vSlRVzMSLDnfdtQ==}
     dev: false
 
+  /@vue/eslint-config-prettier/7.0.0_eslint@7.32.0+prettier@2.6.2:
+    resolution: {integrity: sha512-/CTc6ML3Wta1tCe1gUeO0EYnVXfo3nJXsIhZ8WJr3sov+cGASr6yuiibJTL6lmIBm7GobopToOuB3B6AWyV0Iw==}
+    peerDependencies:
+      eslint: '>= 7.28.0'
+      prettier: '>= 2.0.0'
+    dependencies:
+      eslint: 7.32.0
+      eslint-config-prettier: 8.5.0_eslint@7.32.0
+      eslint-plugin-prettier: 4.0.0_2544802fe0b6e1e28814bd742f96f471
+      prettier: 2.6.2
+    dev: true
+
   /@vue/eslint-config-typescript/9.1.0_20e27d713af20d2a6e479761533faf80:
     resolution: {integrity: sha512-j/852/ZYQ5wDvCD3HE2q4uqJwJAceer2FwoEch1nFo+zTOsPrbzbE3cuWIs3kvu5hdFsGTMYwRwjI6fqZKDMxQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -3151,7 +3165,7 @@ packages:
   /axios/0.27.2:
     resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
     dependencies:
-      follow-redirects: 1.15.1_debug@4.3.4
+      follow-redirects: 1.15.1
       form-data: 4.0.0
     transitivePeerDependencies:
       - debug
@@ -4815,7 +4829,7 @@ packages:
     resolution: {integrity: sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==}
     dev: true
 
-  /follow-redirects/1.15.1_debug@4.3.4:
+  /follow-redirects/1.15.1:
     resolution: {integrity: sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==}
     engines: {node: '>=4.0'}
     peerDependencies:
@@ -4823,8 +4837,6 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
-    dependencies:
-      debug: 4.3.4
     dev: true
 
   /fork-ts-checker-webpack-plugin/6.5.2_c3dc4b05403fe45c13f106e891f52901:
@@ -5217,7 +5229,7 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       eventemitter3: 4.0.7
-      follow-redirects: 1.15.1_debug@4.3.4
+      follow-redirects: 1.15.1
       requires-port: 1.0.0
     transitivePeerDependencies:
       - debug
