@@ -4,26 +4,25 @@ import Item from "@/components/TodoList/Item.vue";
 
 describe("List component, component UI test demo", function () {
   //  输入： List [{title: completed:}]
-  const todos = [
-    { title: "准备session ppt", completed: true },
-    { title: "准备session demo code", completed: false },
-  ];
-  it("should render list item", function () {
-    const wrapper = shallowMount(List, {
-      props: {
-        todos,
-      },
+  const shallowMountTodoList = () => {
+    const defualtProps = {
+      todos: [
+        { title: "准备session ppt", completed: true },
+        { title: "准备session demo code", completed: false },
+      ],
+    };
+    return shallowMount(List, {
+      props: defualtProps,
     });
+  };
+  it("should render list item", function () {
+    const wrapper = shallowMountTodoList();
 
     expect(wrapper.findAllComponents(Item).length).toEqual(2);
   });
   // 测试契约部分的输出
   it("should pass title and completed props to item", function () {
-    const wrapper = shallowMount(List, {
-      props: {
-        todos,
-      },
-    });
+    const wrapper = shallowMountTodoList();
 
     expect(wrapper.findComponent(Item).props()).toEqual({
       title: "准备session ppt",
@@ -32,11 +31,7 @@ describe("List component, component UI test demo", function () {
   });
   // 测试监听Vue自定义事件
   it("should remove current item from list when Item component emit remove event", async function () {
-    const wrapper = shallowMount(List, {
-      props: {
-        todos,
-      },
-    });
+    const wrapper = shallowMountTodoList();
 
     await wrapper.findAllComponents(Item)[0].vm.$emit("remove");
 
@@ -46,22 +41,25 @@ describe("List component, component UI test demo", function () {
     });
   });
 
-  // mount 和 shallowMount对比
-  it("should render list item with mount", function () {
-    const wrapper = mount(List, {
-      props: {
-        todos,
-      },
+  it("should add item when input title and click add button", async function () {
+    const wrapper = shallowMountTodoList();
+
+    await wrapper.find('input[type="text"]').setValue("session rehearsal");
+    await wrapper.find("button.add-todo-btn").trigger("click");
+    expect(wrapper.findAllComponents(Item)[2].props()).toEqual({
+      title: "session rehearsal",
+      completed: false,
     });
+  });
+
+  // mount 和 shallowMount对比 snapshot 要等组件完成最后再加
+  xit("should render list item with mount", function () {
+    const wrapper = shallowMountTodoList();
 
     expect(wrapper.html()).toMatchSnapshot();
   });
-  it("should render list item with shallowMount", function () {
-    const wrapper = shallowMount(List, {
-      props: {
-        todos,
-      },
-    });
+  xit("should render list item with shallowMount", function () {
+    const wrapper = shallowMountTodoList();
 
     expect(wrapper.html()).toMatchSnapshot();
   });
