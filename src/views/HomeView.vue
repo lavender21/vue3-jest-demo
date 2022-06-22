@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <TodoList />
+    <TodoList :todos="todos" />
   </div>
 </template>
 
@@ -13,6 +13,13 @@ export default defineComponent({
   name: "HomeView",
   components: {
     TodoList,
+  },
+  setup() {
+    const todos = [
+      { title: "准备session ppt", completed: true },
+      { title: "准备session demo code", completed: false },
+    ];
+    return { todos };
   },
 });
 </script>
