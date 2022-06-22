@@ -36,4 +36,14 @@ describe("Item component, component UI test demo", function () {
     wrapper.find("span.remove-btn").trigger("click");
     expect(wrapper.emitted().remove).toBeTruthy();
   });
+
+  it("should emit completed event when click title", function () {
+    const wrapper = shallowMount(Item, {
+      title: "准备前端单元测试session ppt",
+      completed: false,
+    });
+
+    wrapper.find("span.todo-item").trigger("click");
+    expect(wrapper.emitted().complete).toBeTruthy();
+  });
 });

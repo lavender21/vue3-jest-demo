@@ -13,6 +13,7 @@
       :key="`item${index}`"
       :title="item.title"
       :completed="item.completed"
+      @complete="completeItem(index)"
       @remove="removeItem(index)"
     />
   </div>
@@ -33,6 +34,10 @@ const addItem = () => {
     completed: false,
   });
   inputValue.value = "";
+};
+
+const completeItem = (index: number) => {
+  todoItems.value[index].completed = true;
 };
 </script>
 <style lang="scss" scoped></style>

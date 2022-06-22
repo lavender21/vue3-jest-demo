@@ -52,6 +52,17 @@ describe("List component, component UI test demo", function () {
     });
   });
 
+  it("should complete item when Item component emit complete event", async function () {
+    const wrapper = shallowMountTodoList();
+
+    await wrapper.findAllComponents(Item)[1].vm.$emit("complete");
+    console.log(wrapper.text());
+    expect(wrapper.findAllComponents(Item)[1].props()).toEqual({
+      title: "准备session demo code",
+      completed: true,
+    });
+  });
+
   // mount 和 shallowMount对比 snapshot 要等组件完成最后再加
   xit("should render list item with mount", function () {
     const wrapper = shallowMountTodoList();
