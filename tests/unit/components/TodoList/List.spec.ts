@@ -96,8 +96,9 @@ describe("List component, component UI test demo", function () {
           { title: "准备session demo code", completed: false },
         ],
       },
-      stubs: {
-        Item: true,
+      shallow: true,
+      global: {
+        stubs: { Item: false },
       },
     });
     expect(wrapper.html()).toMatchSnapshot();

@@ -1,5 +1,6 @@
 <template>
   <div class="todo-list-wrapper">
+    <PersonCenter userId="007" />
     <div class="input-item-wrapper">
       <input type="text" v-model="inputValue" class="item-input" />
       <button class="add-todo-btn" @click="addItem">Add</button>
@@ -17,6 +18,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import Item from "./Item.vue";
+import PersonCenter from "../PersonCenter.vue";
 const props = defineProps<{ todos: [{ title: string; completed: boolean }] }>();
 
 const todoItems = ref(props.todos);
