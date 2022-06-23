@@ -15,3 +15,11 @@ exports[`List component, component UI test demo should render list item with sha
   <item-stub title="准备session demo code" completed="false"></item-stub>
 </div>
 `;
+
+exports[`List component, component UI test demo should stub item render list 1`] = `
+<div class="todo-list-wrapper">
+  <div class="input-item-wrapper"><input type="text" class="item-input"><button class="add-todo-btn">Add</button></div>
+  <div class="todo-item-wrapper"><span class="todo-item completed">准备session ppt</span><span class="remove-btn">remove</span></div>
+  <div class="todo-item-wrapper"><span class="todo-item">准备session demo code</span><span class="remove-btn">remove</span></div>
+</div>
+`;

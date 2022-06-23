@@ -87,4 +87,19 @@ describe("List component, component UI test demo", function () {
 
     expect(wrapper.html()).toMatchSnapshot();
   });
+  // stub局部
+  it("should stub item render list", function () {
+    const wrapper = mount(List, {
+      props: {
+        todos: [
+          { title: "准备session ppt", completed: true },
+          { title: "准备session demo code", completed: false },
+        ],
+      },
+      stubs: {
+        Item: true,
+      },
+    });
+    expect(wrapper.html()).toMatchSnapshot();
+  });
 });
